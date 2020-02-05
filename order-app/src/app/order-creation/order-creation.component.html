@@ -1,0 +1,24 @@
+<div class="content-container">
+    <mat-toolbar color="primary" class="toolbar" id="toolbar">
+            <span class="app-name" id="headerTitel">Order</span>
+              <button mat-icon-button id="addButton" (click)="addProcess()">
+                <mat-icon class="action">add</mat-icon>
+              </button>
+    </mat-toolbar>
+</div>
+<mat-accordion>
+    <mat-expansion-panel [expanded]="true">
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                Process
+            </mat-panel-title>
+        </mat-expansion-panel-header>
+        <mat-card *ngFor="let process of processes">
+            <mat-card-title>Process {{process.id}}</mat-card-title>
+          <mat-card-content>
+              <div id=color>{{process.color}}</div>
+          </mat-card-content>
+        </mat-card>
+    </mat-expansion-panel>
+</mat-accordion>
+<button mat-raised-button id="save" (click)="save();">Save</button>
