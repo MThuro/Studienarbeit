@@ -5,4 +5,12 @@
                 <mat-icon class="action">add</mat-icon>
               </button>
     </mat-toolbar>
+    <mat-card *ngFor="let order of orders">
+        <mat-card-title>Order {{order.id}}</mat-card-title>
+          <mat-card-content class="content" class="content" *ngFor="let process of order.processes">
+              <div>Process {{process.id}}</div>
+              <div class="circle" [ngStyle]="{'background': process.color}"></div>
+        </mat-card-content>
+    </mat-card>
+
 </div>

@@ -8,7 +8,7 @@ import { Routes, RouterModule } from '@angular/router';
 const routes: Routes = [
   { path: '', redirectTo:'/', pathMatch: 'full'},
   { path: 'order-list', component: OrderListComponent },
-  { path: 'order-creation', component: OrderCreationComponent },
+  { path: 'order-creation/:id', component: OrderCreationComponent },
   { path: 'process-creation', component: ProcessCreationComponent}
 ];
 

@@ -1,3 +1,4 @@
+import { ColorPickerComponent } from './color-picker/color-picker.component';
 import { ProcessCreationComponent } from './process-creation/process-creation.component';
 import { OrderListComponent } from './order-list/order-list.component';
 import { OrderCreationComponent } from './order-creation/order-creation.component';
@@ -14,7 +15,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AppComponent,
     OrderListComponent,
     OrderCreationComponent,
-    ProcessCreationComponent   
+    ProcessCreationComponent,
+    ColorPickerComponent 
   ],
   imports: [
     BrowserModule,

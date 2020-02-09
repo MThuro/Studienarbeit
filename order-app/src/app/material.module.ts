@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 import { MatDatepickerModule,
   MatNativeDateModule,
@@ -13,7 +14,7 @@ import { MatDatepickerModule,
   MatButtonModule, 
   MatIconModule, 
   MatListModule,
-  MatExpansionModule} from '@angular/material';
+  MatExpansionModule } from '@angular/material';
   import {FormsModule, ReactiveFormsModule, FormGroup} from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -34,7 +35,8 @@ MatSidenavModule,
 MatExpansionModule,
 FormsModule,
 ReactiveFormsModule,
-BrowserAnimationsModule
+BrowserAnimationsModule,
+DragDropModule
 ],
 exports: [
 MatDatepickerModule,
@@ -53,7 +55,8 @@ MatExpansionModule,
 FormsModule,
 ReactiveFormsModule,
 BrowserAnimationsModule,
-CommonModule
+CommonModule,
+DragDropModule
 ],
 providers: [ MatDatepickerModule ],
 })

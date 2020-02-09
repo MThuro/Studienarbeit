@@ -1,7 +1,9 @@
 import { OrderService } from './../order.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
-import { Process } from '../process';
+import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
+import { saveAs } from 'file-saver/FileSaver';
+import { Order } from '../order';
 
 @Component({
   selector: 'app-order-creation',
@@ -9,12 +11,13 @@ import { Process } from '../process';
   styleUrls: ['./order-creation.component.css']
 })
 export class OrderCreationComponent implements OnInit {
-  processes : Process[];
+  order: Order;
 
-  constructor(private router: Router, private orderService: OrderService) { }
+  constructor(private router: Router, private orderService: OrderService, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.processes = this.orderService.getProcesses();
+    let id = this.route.snapshot.paramMap.get('id');
+    this.order = this.orderService.getOrder(id);
   }
 
   addProcess(): void {
@@ -22,7 +25,32 @@ export class OrderCreationComponent implements OnInit {
   }
 
   save(): void{
+    debugger;
+    let text = this.order.id + "/";
+    for(let process of this.order.processes) {
+      let color = this.hexToRgb(process.color)
+      text = text + (process.id).toString() +"#(" + color.r + "," + color.g + "," + color.b +");";
+    }
+    var data = new Blob([text], { type: 'text/plain;charset=utf-8' });  
+    saveAs(data, 'Order '+this.order.id+".txt"); 
+    this.router.navigateByUrl("/order-list");
+  }
 
+  onDrop(e: CdkDragDrop<string[]>): void{
+    if (e.previousContainer === e.container) {
+      moveItemInArray(e.container.data,
+        e.previousIndex,
+        e.currentIndex);
+    }  
+  }
+
+  hexToRgb(hex) {
+    var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+    return result ? {
+      r: ("00"+parseInt(result[1], 16)).slice(-3),
+      g: ("00"+parseInt(result[2], 16)).slice(-3),
+      b: ("00"+parseInt(result[3], 16)).slice(-3)
+    } : null;
   }
 
 }

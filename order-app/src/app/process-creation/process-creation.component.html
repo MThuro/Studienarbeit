@@ -6,5 +6,6 @@
       <mat-option value="3">Process 3</mat-option>
     </mat-select>
 </mat-form-field>
-<button mat-raised-button id="add" (click)="add(ProcessNumber.value);">Add</button>
+<app-color-picker [heading]="'Background'" [color]="'#FFFFFF'" #colorPicker></app-color-picker>
+<button mat-raised-button id="add" (click)="add(ProcessNumber.value, colorPicker.color);">Add</button>
 </form>
