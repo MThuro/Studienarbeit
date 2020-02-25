@@ -14,6 +14,7 @@ import { MatDatepickerModule,
   MatButtonModule, 
   MatIconModule, 
   MatListModule,
+  MatSnackBar,
   MatExpansionModule } from '@angular/material';
   import {FormsModule, ReactiveFormsModule, FormGroup} from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';

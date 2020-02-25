@@ -1,11 +1,11 @@
 <form class="process-form">
 <mat-form-field class="full-width">
-    <mat-select placeholder="Process" #ProcessNumber required>
-      <mat-option value="1">Process 1</mat-option>
-      <mat-option value="2">Process 2</mat-option>
-      <mat-option value="3">Process 3</mat-option>
+    <mat-select placeholder="Operation" #ProcessNumber required>
+      <mat-option value="1">Operation 1</mat-option>
+      <mat-option value="2">Operation 2</mat-option>
+      <mat-option value="3">Operation 3</mat-option>
     </mat-select>
 </mat-form-field>
-<app-color-picker [heading]="'Background'" [color]="'#FFFFFF'" #colorPicker></app-color-picker>
+<app-color-picker class="color-picker" [heading]="'Color'" [color]="'#FFFFFF'" #colorPicker></app-color-picker>
 <button mat-raised-button id="add" (click)="add(ProcessNumber.value, colorPicker.color);">Add</button>
 </form>

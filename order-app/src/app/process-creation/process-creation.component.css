@@ -12,14 +12,14 @@
     padding-left: 10px;
   }
 
-  .divImageInput{
-    display: flex;
-  }
-  #imageInput {
-    margin: auto;
+  #save{
     margin-bottom: 10px;
   }
 
-  #save{
-    margin-bottom: 10px;
+  .color-picker {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+    padding-bottom: 10px;
   }
